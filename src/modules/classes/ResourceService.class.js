@@ -167,7 +167,7 @@ class ResourceService {
     }
   }
 
-  async deleteByPk(pk, options = undefined) {
+  async destroyByPk(pk, options = undefined) {
     try {
       this.checkModel();
       if (!isNaN(pk)) {
