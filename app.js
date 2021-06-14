@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(directory.assetsDir));
 app.use(cors());
-app.use(session({ secret: "pPv7BWbsI2GAz7NDDRGwpkWJZPx1IPJd" }));
+app.use(session({ secret: process.env.SESSION_KEY }));
 app.use(
   methodOverride(function (req, res) {
     if (req.body && typeof req.body === "object" && "_method" in req.body) {
