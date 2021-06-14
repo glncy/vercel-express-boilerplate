@@ -1,0 +1,29 @@
+<!-- PAGE PROPERTIES -->
+<% page_id = "index-page" %>
+<% title = "index" %>
+
+<!-- HEADER -->
+<%- 
+  include("partials/header.ejs", 
+  { 
+    title: title,
+    page_id: page_id
+  }) 
+%>
+
+<div class="container">
+  <!-- CONTENT HERE -->
+  <h2>Welcome, Express!</h2>
+</div>
+
+<!-- MODALS -->
+
+<!-- JAVASCRIPT CDNs AND SCRIPTS -->
+<%- include("partials/scripts.ejs") %>
+
+<script>
+  // SCRIPTS HERE
+</script>
+
+<!-- FOOTER -->
+<%- include("partials/footer.ejs") %>

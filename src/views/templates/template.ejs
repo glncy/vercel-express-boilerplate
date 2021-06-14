@@ -1,0 +1,31 @@
+<!-- PAGE PROPERTIES -->
+<% page_id = "index-page" %>
+<% title = "index" %>
+
+<!-- HEADER -->
+<%- 
+  include("partials/header.ejs", 
+  { 
+    title: title,
+    page_id: page_id
+  }) 
+%>
+
+<!-- FOR NAVIGATION -->
+<!-- include("../partials/nav.ejs", { auth: auth }) -->
+
+<div class="container">
+  <!-- CONTENT HERE -->
+</div>
+
+<!-- MODALS -->
+
+<!-- JAVASCRIPT CDNs AND SCRIPTS -->
+<%- include("partials/scripts.ejs") %>
+
+<script>
+  // SCRIPTS HERE
+</script>
+
+<!-- FOOTER -->
+<%- include("partials/footer.ejs") %>
