@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "upe2021",
+    "name": "project",
     "builds": [
         {
             "src": "dist/index.js",
