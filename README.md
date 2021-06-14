@@ -9,3 +9,18 @@ Create .env for Development Environment
 ```bash
 cp dev.env .env
 ```
+
+Sequelize Command
+```bash
+# Create Database
+sequelize db:create 
+
+# Migrate Database
+sequelize db:migrate
+
+# Seed Database
+sequelize db:seed:all
+
+# Add --env for environment selection (development, test, production)
+sequelize db:create --env production
+```
