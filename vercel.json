@@ -1,10 +1,13 @@
 {
-    "version": 2,
-    "name": "project",
     "builds": [
         {
-            "src": "dist/index.js",
-            "use": "@vercel/node"
+            "src": "bin/www",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "**"
+                ]
+            }
         }
     ],
     "routes": [
@@ -14,11 +17,8 @@
                 "Access-Control-Allow-Methods": "*",
                 "Access-Control-Allow-Headers": "*"
             },
-            "src": "/.*",
-            "dest": "dist/index.js"
+            "src": "/(.*)",
+            "dest": "bin/www"
         }
-    ],
-    "env": {
-        "VERSION": "1.0.0"
-    }
+    ]
 }

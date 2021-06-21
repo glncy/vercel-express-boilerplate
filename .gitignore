@@ -112,3 +112,6 @@ dist/
 
 # Config
 config/config.json
+
+# GOOGLE SERVICE ACCOUNT
+serviceAccountCredentials.json

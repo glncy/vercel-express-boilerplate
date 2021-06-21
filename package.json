@@ -20,6 +20,8 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
+    "firebase-admin": "^9.9.0",
+    "firestore-store": "^2.0.2",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",

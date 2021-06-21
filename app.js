@@ -1,3 +1,4 @@
+var env = process.env.NODE_ENV || "development";
 var createError = require("http-errors");
 var express = require("express");
 var cookieParser = require("cookie-parser");
@@ -24,7 +25,34 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(directory.assetsDir));
 app.use(cors());
-app.use(session({ secret: process.env.SESSION_KEY }));
+
+// Firebase || For Test and Prod only
+if (env !== "development") {
+  var admin = require("firebase-admin");
+  var firebase = admin.initializeApp({
+    credential: admin.credential.cert(directory.googleServiceAccount),
+    databaseURL: process.env.FIREBASE_FIRESTORE_URL,
+  });
+  var database = firebase.firestore();
+  var FirestoreStore = require("firestore-store")(session);
+  app.use(
+    session({
+      store: new FirestoreStore({
+        database: database,
+      }),
+      secret: process.env.SESSION_KEY || "some_random_key",
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+} else {
+  app.use(
+    session({
+      secret: process.env.SESSION_KEY || "some_random_key",
+    })
+  );
+}
+
 app.use(
   methodOverride(function (req, res) {
     if (req.body && typeof req.body === "object" && "_method" in req.body) {
