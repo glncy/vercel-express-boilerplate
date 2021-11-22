@@ -1,3 +1,6 @@
+** Template **
+
+```html
 <% pageId = "index-page" // Must Be Unique Every Page %> 
 <% title = "index" // Title Page %>
 
@@ -24,3 +27,4 @@
 
 <!-- FOOTER -->
 <%- include(`${dir}/partials/footer.ejs`) %>
+```

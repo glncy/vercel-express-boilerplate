@@ -1,7 +1,7 @@
 {
     "builds": [
         {
-            "src": "bin/www",
+            "src": "bin/www.js",
             "use": "@vercel/node",
             "config": {
                 "includeFiles": [
@@ -18,7 +18,7 @@
                 "Access-Control-Allow-Headers": "*"
             },
             "src": "/(.*)",
-            "dest": "bin/www"
+            "dest": "bin/www.js"
         }
     ]
 }

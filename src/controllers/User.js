@@ -6,15 +6,15 @@ class UserController extends BaseView {
     super();
     super.init({ req, res, next });
     this.service = new User();
-    this.templateView = "index";
   }
 
   async findAllView() {
     try {
       let [results, error] = await this.service.findAll();
       if (error) throw error;
-      this.templateOptions.queryResult = results;
-      super.render();
+      super.render("index", {
+        queryResult: result,
+      });
     } catch (e) {
       super.renderError(e);
     }

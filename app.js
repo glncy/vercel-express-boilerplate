@@ -26,23 +26,28 @@ app.use(cookieParser());
 app.use(express.static(directory.assetsDir));
 app.use(cors());
 
-// Firebase || For Test and Prod only
 if (env !== "development") {
-  var admin = require("firebase-admin");
-  var firebase = admin.initializeApp({
-    credential: admin.credential.cert(directory.googleServiceAccount),
-    databaseURL: process.env.FIREBASE_FIRESTORE_URL,
-  });
-  var database = firebase.firestore();
-  var FirestoreStore = require("firestore-store")(session);
+  // Recommended for Serverless
+  // var admin = require("firebase-admin");
+  // var firebase = admin.initializeApp({
+  //   credential: admin.credential.cert(directory.googleServiceAccount),
+  //   databaseURL: process.env.FIREBASE_FIRESTORE_URL,
+  // });
+  // var database = firebase.firestore();
+  // var FirestoreStore = require("firestore-store")(session);
+  // app.use(
+  //   session({
+  //     store: new FirestoreStore({
+  //       database: database,
+  //     }),
+  //     secret: process.env.SESSION_KEY || "some_random_key",
+  //     resave: false,
+  //     saveUninitialized: true,
+  //   })
+  // );
   app.use(
     session({
-      store: new FirestoreStore({
-        database: database,
-      }),
       secret: process.env.SESSION_KEY || "some_random_key",
-      resave: false,
-      saveUninitialized: true,
     })
   );
 } else {
